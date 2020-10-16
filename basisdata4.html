@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <style>
+    body {
+      background-image: url("img/basisdata4/background_image.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    .nav-item{
+        padding: 10px;
+    }
+    </style>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Requirement ACID</title>
+  </head>
+  <body>
+    <nav class="navbar-fixed-top navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbar-brand" class="text-white" >Richard Suwandi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href=""></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""></a>
+              </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#konsep">Konsep Transaksi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#ACID">ACID Property</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#kasus">Contoh Kasus</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="card mb-3" style="max-width: 1500px;" id="konsep"><br>
+        <center><h2>Konsep Transaksi</h2></center>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="img/basisdata4/pengertian.gif" width="225px" height="250px" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 id="list-item-1" class="card-title"></h5>
+                <p class="card-text text-justify">Transaksi adalah suatu unit dari eksekusi program yang memungkinkan
+                untuk mengakses dan melakukan perubahan pada beberapa data item. Suatu
+                sistem basis data harus memastikan eksekuasi transaksi yang sesuai – apakah
+                keseluruhan transaksi dieksekusi atau tidak satupun operasi di dalamnya yang
+                dieksekusi. Lebih jelasnya, basis data harus mengelola eksekusi transaksi yang
+                terjadi secara berbarengan sehingga tidak terjadi ketidak konsistenan data pada
+                basis data. </p>
+                <p class="card-text text-justify">Transaction mengakses data menggunakan dua operasi, yaitu :</p>
+                <strong>read (x)</strong>
+                <p class="card-text text-justify">Mentransfer data item X dari basis data ke local buffer yang merupakan bagian dari transaksi yang melakukan operasi read.</p>
+                <strong>write (x)</strong> 
+                <p class="card-text text-justify">Mentransfer data item X dari local buffer pada transaksi yang melakukan penulisan data kembali ke basis data. </p>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+      <div class="card mb-3" style="max-width: 1500px;" id="ACID"><br>
+        <center><h2>ACID Property</h2></center>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="img/basisdata4/acid.png" width="225px" height="250px" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <p class="card-text text-justify">Terdapat empat sifat penting dalam transaksi yang harus dijamin oleh DBMS dalam menjaga agar data tetap konsisten, yaitu : </p>
+                <li>
+                <strong>Atomicity</strong>  
+                 : apakah semua aksi dilaksanakan atau tidak sama sekali. User tidak perlu khawatir mengenai efek dari transaksi yang gagal.
+                </li><br>
+                <li>
+                <strong>Consistency</strong>  
+                 : Setiap transaksi, dijalankan sendiri tanpa eksekusi transaksi lain pada saat yang bersamaan, harus menjaga consistency dari basis data. 
+                </li><br>
+                <li>
+                <strong>Isolation</strong>  
+                 : User harus dapat menjalankan suatu transaksi tanpa harus memperhatikan efek dari transaksi lain yang dijalankan bersamaan, bahkan jika DBMS melakukan interleave terhadap transaksi untuk alasan performansi. 
+                </li><br>
+                <li>
+                <strong>Durability</strong>  
+                 : Sekali DBMS memberitahukan user bahwa suatu transaksi telah dijalankan dengan sukses, pengaruhnya harus tetap bahkan jika terjadi crash pada sistem sebelum semua perubahan tersebut dilakukan pada disk. 
+                </li><br>
+                <p class="card-text text-justify">Keempat properti tersebut sering di kenal sebagai ACID properties. Istilah ACID sering digunakan untuk menggambarkan keempat sifat transaksi tersebut : atomicity, consistency, isolation, dan durability. Dalam menjaga integritas data, sistem harus dapat memelihara keempat sifat tersebut dimana : </p><br>
+                <li>
+                  Isolation (+ Consistency) => Concurrency Control
+                </li><br>
+                <center><img src="img/basisdata4/concurrency.jpg" width="850rem"; alt=""></center><br><br>
+                <li>
+                  Atomicity + Durability => Recovery 
+                </li><br>
+                <center><img src="img/basisdata4/recovery.jpg" width="200rem"; alt=""></center><br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+      <div class="card mb-3" style="max-width: 1500px;" id="kasus"><br>
+        <center><h2>Contoh Kasus</h2></center><br>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="img/basisdata4/contoh kasus.jpg" width="225px" height="300px" class="card-img" >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p class="card-text text-justify">Jika Richard ingin mentransfer uang ke vanesha melalui via ATM . Richard akan mentransfer sebesar Rp. 100.000 dari bank A ke vanesha (bank B) . maka prosesnya akan seperti dibawah ini :</p>
+              <p class="card-text text-justify">kita misalkan bahwa : richard = saldo_Richard dan vanesha = saldo_Vanesha</p>
+              <p class="card-text text-justify">1. read(saldo_Richard)</p>
+              <p class="card-text text-justify">2. saldo_Richard := saldo_Richard - 100.000</p>
+              <p class="card-text text-justify">3. write(saldo_Richard)</p>
+              <p class="card-text text-justify">4. read(saldo_Vanesha)</p>
+              <p class="card-text text-justify">5. saldo_Vanesha := saldo_Vanesha + 100.000</p>
+              <p class="card-text text-justify">6. write(saldo_Vanesha)</p><br>
+              <strong>Penjelasan proses transaksi diatas :</strong>
+              <p class="card-text text-justify">1. Disini system akan membaca saldo pada saldo_Richard</p>
+              <p class="card-text text-justify">2. Setelah system membaca saldo, maka system akan memotong / mengurangi saldo_Richard sesuai instruksi ( Rp. 100.000 )</p>
+              <p class="card-text text-justify">3. Setelah itu, system akan menampilkan hasil saldo_Richard yang sudah dikurangi pada nomor 2</p>
+              <p class="card-text text-justify">4. System akan membaca pada saldo_Vanesha</p>
+              <p class="card-text text-justify">5. Lalu system akan menambahkan saldo_Vanesha sesuai yang saldo_Richard kirimkan , yakni sebesar Rp. 100.000</p>
+              <p class="card-text text-justify">6. Setelah itu, maka system akan menampilkan hasil saldo_Vanesha yang sudah ditambahi sesuai pada nomor 5</p><br><br>
+              <p class="card-text text-justify">Berikut adalah penjelasan properti ACID yang terjadi pada proses transaksi di atas :</p>
+              <li>
+                <strong>Consistency Requirement</strong>
+                 : Jumlah pada saldo_Richard dan saldo_Vanesha tidak berubah setelah eksekusi transaksi
+              </li><br>
+              <li>
+                <strong>Atomicity Requirement</strong>
+                 : Jika transaksi gagal dijalankan setelah Langkah ke 3 dan sebelum Langkah ke 6, maka system akan menjamin perubahan yang terjadi tidak direfleksikan di database, jika hal ini tidak terjadi maka akan inconsistency.
+              </li><br>
+              <li>
+                <strong>Isolation Requirement</strong>
+                 : Jika pada Langkah no 3 dan 6, transaksi lain T2 diiznkan untuk mengkases database yang diperbaharui sebagaian, maka database akan terlihat tidak konsisten. Isolasi dapat dilakukan hanya menjalankan transaksi secara satu demi satu ( serial )
+              </li><br>
+              <li>
+                <strong>Durability Requirement</strong>
+                 : Setelah saldo_Richard diberi tahu bahwa transaksi telah selesai ( sudah mengirim Rp. 100.000 kepada saldo_Vanesha), maka database harus tetap terupdate meskipun ada terjadi kegagalan pada saat terjadinya transaksi
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Awal Footer-->
+    <footer class="bg-light py-5">
+        <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Team e-Nongki</div></div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script>
+      var scroll = new SmoothScroll('a[href*="#"]');
+      var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 300
+          });
+      var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 500,
+            speedAsDuration: true
+          });
+    </script>
+  </body>
+</html>
